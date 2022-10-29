@@ -1,18 +1,23 @@
+import "./index.css";
+import "./output.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Home from "./pages/Home";
+import Nav from "./componets/Nav";
+import Footer from "./componets/Footer";
+import CountryDetails from "./pages/CountryDetails";
 
-import './App.css';
-import Home from './pages/Home';
-import CountryDetails from './pages/CountryDetails';
-import {Routes,Route} from "react-router-dom"
-import Nav from './components/Nav';
 function App() {
   return (
-    <>
-    <Nav />
+    <div>
+      <Nav />
       <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/:name" element={<CountryDetails />}/>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/:country" element={<CountryDetails />} />
+        
       </Routes>
-    </>
+      <Footer />
+    </div>
   );
 }
 
